@@ -1,4 +1,4 @@
-module Tests
+module HowGreenIsMyValleyTests
 
 open Xunit
 open HowGreenIsMyValley
@@ -14,4 +14,4 @@ let ``How Green Is My Valley Tests`` () =
     Assert.Equal<list<int>>([70; -25], makeValley [70; -25])
     Assert.Equal<list<int>>([73; 49; 32; -33; -55; 26; 33; 62], makeValley [73; 62; 49; 33; 32; 26; -33; -55])
     Assert.Equal<list<int>>([91; 32; 60], makeValley [91; 60; 32])
-    // Assert.Equal<list<int>>([90; 47; 27; -91; 16; 33; 78], makeValley [90; 78; 47; 33; 27; 16; -91])
+    Assert.Equal<list<int>>([90; 47; 27; -91; 16; 33; 78], makeValley [90; 78; 47; 33; 27; 16; -91])

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="FunctionalCompositionTests.fs" />
     <Compile Include="HowGreenIsMyValleyTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
