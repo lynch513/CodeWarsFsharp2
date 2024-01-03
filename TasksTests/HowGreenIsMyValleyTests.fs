@@ -4,7 +4,7 @@ open Xunit
 open HowGreenIsMyValley
 
 [<Fact>]
-let ``How Green Is My Valley Tests`` () =
+let Tests () =
     Assert.Equal<list<int>>([77], makeValley [77])
     Assert.Equal<list<int>>([], makeValley [])
     Assert.Equal<list<int>>([98; 77; 31; 24; -62; 26; 54; 93], makeValley [98; 93; 77; 54; 31; 26; 24; -62])

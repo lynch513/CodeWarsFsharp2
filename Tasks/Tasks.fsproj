@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="FunctionComposition.fs" />
     <Compile Include="HowGreenIsMyValley.fs" />
+    <Compile Include="ReduceButGrow.fs" />
   </ItemGroup>
 
 </Project>
