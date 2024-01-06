@@ -9,6 +9,7 @@
     <Compile Include="ReduceButGrowTests.fs" />
     <Compile Include="FunctionalCompositionTests.fs" />
     <Compile Include="HowGreenIsMyValleyTests.fs" />
+    <Compile Include="DigitalCypherTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
