@@ -1,0 +1,152 @@
+#+title:     Code Wars F#
+#+author:    lynch513
+#+email:     lynch513@yandex.ru
+
+* Reduce But Grow
+** Description
+Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+
+#+begin_quote
+[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+#+end_quote
+
+** Solution
+* Function Composition
+** Description
+In mathematics, function composition is the pointwise application of one function to the result of another to produce a third function.
+
+For example you have a simple function f:
+
+#+begin_quote
+f(a,b) = a + b
+#+end_quote
+
+Your task is to write function g which applies function f n times for second argument:
+
+#+begin_quote
+g(n, f(b), a)
+#+end_quote
+
+Let ~n = 3, a = 3, b = 5~ then
+
+#+begin_quote
+g(3, f(5), 3) = (a + (a + (a + b))) = (3 + (3 + (3 + 5))) = 14
+#+end_quote
+
+** Solution
+
+* How Green Is My Valley
+** Description
+- Input : an array of integers.
+
+- Output : this array, but sorted in such a way that there are two wings:
+
+- the left wing with numbers decreasing,
+
+- the right wing with numbers increasing.
+
+- the two wings have the same length. If the length of the array is odd the wings are around the bottom, if the length is even the bottom is considered to be part of the right wing.
+
+- each integer l of the left wing must be greater or equal to its counterpart r in the right wing, the difference l - r being as small as possible. In other words the right wing must be nearly as steep as the left wing.
+
+- The function is make_valley or makeValley or make-valley.
+
+#+begin_quote
+a = [79, 35, 54, 19, 35, 25]
+make_valley(a) --> [79, 35, 25, *19*, 35, 54]
+The bottom is 19, left wing is [79, 35, 25], right wing is [*19*, 35, 54].
+79..................54
+    35..........35
+        25.
+          ..19
+
+a = [67, 93, 100, -16, 65, 97, 92]
+make_valley(a) --> [100, 93, 67, *-16*, 65, 92, 97]
+The bottom is -16, left wing [100, 93, 67] and right wing [65, 92, 97] have same length.
+100.........................97
+    93..........
+               .........92
+        67......
+               .....65
+            -16
+
+a = [66, 55, 100, 68, 46, -82, 12, 72, 12, 38]
+make_valley(a) --> [100, 68, 55, 38, 12, *-82*, 12, 46, 66, 72]
+The bottom is -82, left wing is [100, 68, 55, 38, 12]], right wing is [*-82*, 12, 46, 66, 72].
+
+a = [14,14,14,14,7,14]
+make_valley(a) => [14, 14, 14, *7*, 14, 14]
+
+a = [14,14,14,14,14]
+make_valley(a) => [14, 14, *14*, 14, 14]
+#+end_quote
+
+A counter-example:
+
+#+begin_quote
+a = [17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1]
+A solution could be [17, 17, 15, 14, 8, 1, 4, 4, 5, 7, 7]
+but the right wing [4, 4, 5, 7, 7] is much flatter than the left one
+[17, 17, 15, 14, 8].
+
+Summing the differences between left and right wing:
+(17-7)+(17-7)+(15-5)+(14-4)+(8-4) = 44
+
+Consider the following solution:
+[17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17]
+Summing the differences between left and right wing:
+(17-17)+(15-14)+(8-7)+(7-5)+(4-4) = 4
+The right wing is nearly as steep as the right one.
+#+end_quote
+** Solution
+
+* Digital Cypher
+** Description
+*** Introduction
+Digital Cypher assigns to each letter of the alphabet unique number. For example:
+
+#+begin_quote
+ a  b  c  d  e  f  g  h  i  j  k  l  m
+ 1  2  3  4  5  6  7  8  9 10 11 12 13
+ n  o  p  q  r  s  t  u  v  w  x  y  z
+14 15 16 17 18 19 20 21 22 23 24 25 26
+#+end_quote
+
+Instead of letters in encrypted word we write the corresponding number, eg. The word scout:
+
+#+begin_quote
+ s  c  o  u  t
+19  3 15 21 20
+#+end_quote
+
+Then we add to each obtained digit consecutive digits from the key. For example. In case of key equal to 1939:
+
+#+begin_quote
+   s  c  o  u  t
+  19  3 15 21 20
+ + 1  9  3  9  1
+ ---------------
+  20 12 18 30 21
+
+   m  a  s  t  e  r  p  i  e  c  e
+  13  1 19 20  5 18 16  9  5  3  5
++  1  9  3  9  1  9  3  9  1  9  3
+  --------------------------------
+  14 10 22 29  6 27 19 18  6  12 8
+#+end_quote
+
+*** Task
+Write a function that accepts str string and key number and returns an array of integers representing encoded str.
+
+*** Input / Output
+The str input string consists of lowercase characters only.
+The key input number is a positive integer.
+
+*** Example
+
+#+begin_quote
+Encode("scout",1939);  ==>  [ 20, 12, 18, 30, 21]
+Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
+#+end_quote
+
+** Solution
