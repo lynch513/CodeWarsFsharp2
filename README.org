@@ -150,7 +150,6 @@ Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
 #+end_quote
 
 ** Solution
-
 * Take a Ten Minutes Walk
 You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
 
@@ -159,7 +158,6 @@ Note: you will always receive a valid array containing a random assortment of di
 #+end_quote
 
 ** Solution
-
 #+begin_src fsharp
 let isValidWalk walk = (* your code here! *)
 #+end_src
@@ -174,6 +172,58 @@ module Tests = begin
                 Assert.Equal("should return False on invalid walk", false, isValidWalk ['n';'s';'n';'s';'n';'s';'n';'s';'n';'n'])
                 Assert.Equal("should return False on too short walk", false, isValidWalk ['n';'s'])
                 Assert.Equal("should return True on valid walk", true, isValidWalk ['n';'s';'e';'w';'n';'s';'e';'w';'n';'s'])
+            );
+        ]
+end
+#+end_src
+
+* Playing with digits
+** Description
+Some numbers have funny properties. For example:
+
+1. 89 --> 8¹ + 9² = 89 * 1
+2. 695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
+3. 46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+
+Given two positive integers n and p, we want to find a positive integer k, if it exists, such that the sum of the digits of n raised to consecutive powers starting from p is equal to k * n.
+
+In other words, writing the consecutive digits of n as a, b, c, d ..., is there an integer k such that :
+
+(a^p + b^{p + 1} + c^{p + 2} + d^{p + 3} + ...) = n * k
+
+If it is the case we will return k, if not return -1.
+
+Note: n and p will always be strictly positive integers.
+
+*** Examples:
+
+n = 89; p = 1 ---> 1 since 8¹ + 9² = 89 = 89 * 1
+
+n = 92; p = 1 ---> -1 since there is no k such that 9¹ + 2² equals 92 * k
+
+n = 695; p = 2 ---> 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+
+n = 46288; p = 3 ---> 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+** Solution:
+#+begin_src fsharp
+let digPow (n: int) (p: int) =
+  // your code
+#+end_src
+
+#+begin_src fsharp
+open System
+
+module Tests = begin
+    open Fuchu
+    let testDigPow n p expectedOutput =
+        Assert.Equal("", expectedOutput, digPow n p)
+    let suite =
+        testList "testDigPow" [
+            testCase "should return the result for some values" <| (fun _ ->
+                testDigPow 89 1 1L
+                testDigPow 92 1 -1L
+                testDigPow 46288 3 51L
+                testDigPow 114 3 9L
             );
         ]
 end
